@@ -25,11 +25,19 @@ for (const seatBtn of seatButton) {
         tr.appendChild(td1);
         tr.appendChild(td2);
         tr.appendChild(td3);
+
+        // set select minimum 1 seat then enabled next button
+        const nuInput =  document.getElementById('number-input').value;
+        if (!isNaN(nuInput) && tbody.childNodes.length >= 1) {
+            document.getElementById('next-btn').disabled = false;
+        }
+
+        // set max seat 4 & coupon button condition
         if (tbody.childNodes.length > 4) {
             alert("You can take a maximum of 4 seats")
             return
         } else if (tbody.childNodes.length === 4) {
-            document.getElementById("apply").removeAttribute( "disabled" );
+            document.getElementById("apply").removeAttribute("disabled");
         }
         tbody.append(tr);
 
@@ -49,15 +57,17 @@ for (const seatBtn of seatButton) {
 
         // set grand total
         setInnerText('grand-total', convertTotalPrice + convertPrice)
-        
+
         // Set seat Background color
         const selectedSeats = e.target;
         selectedSeats.setAttribute("disabled", true);
         selectedSeats.style.backgroundColor = '#1DD100'
-        selectedSeats.style.color =  'white';
+        selectedSeats.style.color = 'white';
 
     })
 }
+
+
 // this function for set innerText
 function setInnerText(id, value) {
     document.getElementById(id).innerText = value;
@@ -73,14 +83,26 @@ function couponBtn() {
         document.getElementById('grand-total').innerText = grandTotal - discount;
         const couponBox = document.getElementById('input-box');
         couponBox.style.display = 'none';
-        document.getElementById('discount-container').innerText = `Discount Price: ${discount}`;
+        const discountBox = document.getElementById('discount-container');
+        const p = document.createElement('p');
+        p.innerText = "Discount Price  :";
+        const p2 = document.createElement('p');
+        p2.innerText = `BDT ${discount}`;
+        discountBox.appendChild(p);
+        discountBox.appendChild(p2);
     } else if (couponCode === "COUPLE20") {
         const grandTotal = document.getElementById('grand-total').innerText;
         const discount = grandTotal * 0.20;
         document.getElementById('grand-total').innerText = grandTotal - discount;
         const couponBox = document.getElementById('input-box');
         couponBox.style.display = 'none';
-        document.getElementById('discount-container').innerText = `Discount Price : ${discount}`
+        const discountBox = document.getElementById('discount-container');
+        const p = document.createElement('p');
+        p.innerText = "Discount Price  :";
+        const p2 = document.createElement('p');
+        p2.innerText = `${discount}`;
+        discountBox.appendChild(p);
+        discountBox.appendChild(p2);
     }
     else {
         alert('invalid coupon code...')
@@ -89,6 +111,8 @@ function couponBtn() {
 
 }
 
+//   clear all data from the cart and page reload function
 document.getElementById('reload-btn').addEventListener('click', function () {
-    location.reload();
+    // location.reload();
+    window.location.reload();
 })

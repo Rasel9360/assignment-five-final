@@ -38,7 +38,7 @@
                             <li><a href="#">Search</a></li>
                         </ul>
                     </div>
-                    <a class="rale-font text-3xl lg:text-4xl font-extrabold">P-Ticket</a>
+                    <a class="rale-font text-2xl lg:text-4xl font-extrabold">P-Ticket</a>
                 </div>
                 <div class="navbar-center hidden lg:flex">
                     <ul class="menu menu-horizontal px-1 rale-font text-lg font-semibold">
@@ -312,7 +312,7 @@
                                     placeholder="Have any coupon?">
                                 <button disabled onclick="couponBtn()" id="apply" class="btn bg-[#1DD100] text-white">Apply</button>
                             </div>
-                            <div id="discount-container" class="flex justify-end">
+                            <div id="discount-container" class="flex justify-between">
 
                             </div>
                             <div class="flex justify-between border-t-2 border-dashed">
@@ -334,7 +334,7 @@
                                         <span class="label-text inter-font font-semibold text-lg text-black">Phone
                                             Number*</span>
                                     </div>
-                                    <input type="number" required placeholder="Enter your phone number"
+                                    <input id="number-input" type="number" required placeholder="Enter your phone number"
                                         class="input input-bordered w-full " />
                                     <div class="label">
                                         <span class="label-text inter-font font-semibold text-lg text-black">Email
@@ -343,7 +343,7 @@
                                     <input type="email" required placeholder="Enter your email id"
                                         class="input input-bordered w-full " />
                                     <!-- Modal Section -->
-                                    <button
+                                    <button disabled id="next-btn"
                                         class="btn btn-praimary outline-none bg-[#1DD100] text-white rale-font text-xl font-extrabold mt-5"
                                         onclick="my_modal_1.showModal()">Next</button>
                                     <dialog id="my_modal_1" class="modal">
@@ -376,7 +376,7 @@
         </section>
     </main>
     <!--  footer section -->
-    <footer class="bg-black">
+    <footer class="bg-black py-16 lg:py-0">
         <div class="lg:p-[120px]">
             <div
                 class="flex flex-col lg:flex-row text-center gap-5 lg:gap-0 lg:text-start justify-between border-b-2 border-dashed py-8">
@@ -402,8 +402,8 @@
                 <p class="inter-font text-[#FFFFFFCC]">@all rights reserved, P-Ticket services limited.2024</p>
                 <div class="flex space-x-10 ">
                     <p class="inter-font text-lg font-medium text-white"><a href="">Terms & condition</a></p>
-                    <p class="inter-font text-lg font-medium text-white"><a href="">Terms & condition</a></p>
-                    <p class="inter-font text-lg font-medium text-white"><a href="">Terms & condition</a></p>
+                    <p class="inter-font text-lg font-medium text-white"><a href="">Return & refund policy</a></p>
+                    <p class="inter-font text-lg font-medium text-white"><a href="">Privacy policy</a></p>
                 </div>
             </div>
         </div>
